@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+   
+}
+
+#userBtn {
+    margin-right: 50px;
+}
+
+.jumbotron {
+    border: 2px solid  #9200bf;
+    background: #414244;
+    color: #ffffff;
+}
+
+.mainBtns button {
+    background: #9200bf;
+    border: 2px solid black; 
+    color: #ffffff;
+}
