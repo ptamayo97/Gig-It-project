@@ -1,4 +1,5 @@
 
+$('body').scrollspy({ target: '#list-example' })
 
 // Initialize Firebase
 var config = {

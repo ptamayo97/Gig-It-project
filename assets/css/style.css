@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+   
+}
+
+.container {
+    position: relative;
+}
+
+#userBtn {
+    margin-right: 50px;
+}
+
+#artistBtn {
+    background: #9200bf;
+    border: 2px solid black; 
+    color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    font-weight: bold;
+}
