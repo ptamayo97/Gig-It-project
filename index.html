@@ -39,10 +39,10 @@
 
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar ">
 
 
-        <a class="navbar-brand">Gig It!</a>
+        <a class="navbar-brand" id="logo">Gig It!</a>
 
         <form class="form-inline">
 
@@ -54,51 +54,54 @@
 
     </nav>
 
-
-    <div class="leftContainer">
-
-
-        <h1>Events</h1>
-
-        <form name="dateForm">
-
-            <select name="time" id="timeFrame">
-
-                <option value="today" id="today">Today</option>
-
-                <option value="thisWeek" id="thisWeek">This Week</option>
-
-                <option value="thisMonth" id="thisMonth">This Month</option>
-
-            </select>
-
-        </form>
-
-        <ul>
-
-        </ul>
+    <div class="main">
+        
+        <div class="leftContainer theme">
 
 
-    </div>
+            <h1>Events</h1>
+
+            <form name="dateForm">
+
+                <select name="time" id="timeFrame">
+
+                    <option value="today" id="today">Today</option>
+
+                    <option value="thisWeek" id="thisWeek">This Week</option>
+
+                    <option value="thisMonth" id="thisMonth">This Month</option>
+
+                </select>
+
+            </form>
+
+            <ul>
+
+            </ul>
 
 
-    <div class="mapContainer">
-
-        <div id="map">
-            
         </div>
 
+
+        <div class="mapContainer">
+
+            <div id="map">
+
+            </div>
+
+        </div>
+
+        <div class="rightMain">
+        <div class="rightContainer theme">
+
+            <h1>(hidden)</h1>
+
+        </div>
     </div>
-
-
-    <div class="rightContainer">
-
-        <h1>(hidden)</h1>
-
     </div>
+    
 
-
-    <footer>
+    <footer class="theme">
 
         <div class="footerDiv">
 
@@ -106,8 +109,7 @@
 
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <script src="assets/javascript/app.js"></script>
 
@@ -115,10 +117,9 @@
     <script src="assets/javascript/bands.js"></script>
 
 
-<!-- Adds in google maps API w/ key -->
-    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyDmm6EGG47wjAOe26Rf_VZ_IH_9R55q3z8&callback=initMap"
-    async defer></script>
-    
+    <!-- Adds in google maps API w/ key -->
+    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyDmm6EGG47wjAOe26Rf_VZ_IH_9R55q3z8&callback=initMap" async defer></script>
+
 </body>
 
 </html>
