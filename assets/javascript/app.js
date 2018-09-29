@@ -10,8 +10,3 @@ var config = {
   };
   firebase.initializeApp(config);
 
-  $('.rightContainer').resizable({
-    handles: 'n,w,s,e',
-    minWidth: 250,
-    maxWidth: 400
-});
