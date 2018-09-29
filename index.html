@@ -54,49 +54,52 @@
 
     </nav>
 
-
-    <div class="leftContainer theme">
-
-
-        <h1>Events</h1>
-
-        <form name="dateForm">
-
-            <select name="time" id="timeFrame">
-
-                <option value="today" id="today">Today</option>
-
-                <option value="thisWeek" id="thisWeek">This Week</option>
-
-                <option value="thisMonth" id="thisMonth">This Month</option>
-
-            </select>
-
-        </form>
-
-        <ul>
-
-        </ul>
+    <div class="main">
+        
+        <div class="leftContainer theme">
 
 
-    </div>
+            <h1>Events</h1>
+
+            <form name="dateForm">
+
+                <select name="time" id="timeFrame">
+
+                    <option value="today" id="today">Today</option>
+
+                    <option value="thisWeek" id="thisWeek">This Week</option>
+
+                    <option value="thisMonth" id="thisMonth">This Month</option>
+
+                </select>
+
+            </form>
+
+            <ul>
+
+            </ul>
 
 
-    <div class="mapContainer">
-
-        <div id="map">
-            
         </div>
 
+
+        <div class="mapContainer">
+
+            <div id="map">
+
+            </div>
+
+        </div>
+
+        <div class="rightMain">
+        <div class="rightContainer theme">
+
+            <h1>(hidden)</h1>
+
+        </div>
     </div>
-
-
-    <div class="rightContainer theme">
-
-        <h1>(hidden)</h1>
-
     </div>
-
+    
 
     <footer class="theme">
 
@@ -106,18 +109,16 @@
 
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <script src="assets/javascript/app.js"></script>
 
     <script src="assets/javascript/map.js"></script>
 
 
-<!-- Adds in google maps API w/ key -->
-    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyDmm6EGG47wjAOe26Rf_VZ_IH_9R55q3z8&callback=initMap"
-    async defer></script>
-    
+    <!-- Adds in google maps API w/ key -->
+    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyDmm6EGG47wjAOe26Rf_VZ_IH_9R55q3z8&callback=initMap" async defer></script>
+
 </body>
 
 </html>

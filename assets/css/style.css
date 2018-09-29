@@ -1,10 +1,14 @@
     
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto|Varela+Round');
+    
 body {
     /* text-align: center; */
     color: #ffffff;
+    font-family: 'Varela Round', 'Roboto', sans-serif;
 }
 
-.container {
+.main {
     position: relative;
 }
 
@@ -38,12 +42,15 @@ nav {
 }
 
 .leftContainer {
-    /* height: 700px; */
-    position: fixed;
-    bottom: 50px;
-    top: 73px;
+    height: 700px;
+    position: absolute;
+    /* bottom: px; */
+    top: 0px;
     width: 250px;
+    left: 0;
+    /* right: 150px; */
     border-right: 2px solid black;
+
 }
 
 #timeFrame {
@@ -58,10 +65,16 @@ nav {
     bottom: 50px;
 }
 
+.rightMain {
+    position: relative;
+}
+
 .rightContainer {
-    position: fixed;
-    top: 73px;
-    bottom: 50px;
+    position: absolute;
+    height: 700px;
+
+    top: 0px;
+    /* bottom: 0px; */
     right: 0px;
     width: 250px;
     border-left: 2px solid black;

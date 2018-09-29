@@ -9,3 +9,9 @@ var config = {
     messagingSenderId: "660146414559"
   };
   firebase.initializeApp(config);
+
+  $('.rightContainer').resizable({
+    handles: 'n,w,s,e',
+    minWidth: 250,
+    maxWidth: 400
+});
