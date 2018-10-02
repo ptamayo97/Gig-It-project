@@ -8,7 +8,7 @@ function displayArtistEvents(artist, date) {
   }).then(function (response) {
     //displays artist page from bandinstown
     var artistInfo = response[0].url;
-    var a = $("<a>").text("Artist's Website");
+    var a = $("<a>").text("Artist's BandsInTown Page");
     var aOne = a.attr("href", artistInfo);
     $("#artistPage").append(aOne);
     //ajax to assess object value to display on map Venue location(latitude and physical address),
@@ -75,20 +75,33 @@ $("#submit").on("click", function () {
   $("#artistInfo").empty();
   //add jquery for return button
   artist = $("#search").val().toLowerCase();
+  var today = moment();
+  var today1 = moment(today).format("YYYY-MM-DD");
+  var endWeek = moment().endOf("week");
+  var newEnd = moment(endWeek).format("YYYY-MM-DD");
+  var eMonth = moment().endOf("month");
+  var endMonth = moment(eMonth).format("YYYY-MM-DD");
+  //console.log("day is: "+newEnd);
     //displayArtistInfo(artist);
   //if 7 days is selected then date varialbe will equal to dange range of 7 days
   if ($("#timeFrame").val() === "thisWeek") {
-    date //convert date variable to api parameters
+    date = today1+","+newEnd //convert date variable to api parameters
+    console.log(date);
     displayArtistEvents(artist, date)
     //if this month is selected then date varialbe will equal to current month
   } else if ($("#timeFrame").val() === "thisMonth") {
-    date  //link drop selection to date variable
+    date = today1+","+endMonth; //link drop selection to date variable
+    console.log(date);
     displayArtistEvents(artist, date)
   } else if ($("#timeFrame").val()==="today"){
-    date = "upcoming" //if today is selected then date variable will change to today or upcoming
+    date = today1+","+today1;//if today is selected then date variable will change to today or upcoming
+    console.log(date);
     displayArtistEvents(artist, date)
   } else{
+    date = "upcoming";
+    displayArtistEvents(artist, date);
     displayArtistInfo(artist);
+    $("#artistPage").hide();
   }
 
 });
