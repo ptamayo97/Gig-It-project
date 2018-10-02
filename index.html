@@ -29,6 +29,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
     <title>Gig It</title>
 
 
@@ -46,7 +48,10 @@
 
         <form class="form-inline">
 
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search" id="search">
+            <div class="row">
+                <button type="button" id="submit" class="btn btn-primary">Submit</button>
+            </div>
 
         </form>
 
@@ -57,13 +62,14 @@
     <div class="main">
         
         <div class="leftContainer theme">
-
-
+            
             <h1>Events</h1>
 
             <form name="dateForm">
 
                 <select name="time" id="timeFrame">
+
+                    <option>Artist Information</option>
 
                     <option value="today" id="today">Today</option>
 
@@ -74,6 +80,14 @@
                 </select>
 
             </form>
+            
+            <div id="artistName"></div>
+
+            <div id="artistPage"></div>
+
+            <div id="artistInfo"></div>
+
+            
 
             <ul>
 

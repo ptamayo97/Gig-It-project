@@ -10,24 +10,25 @@ function displayArtistEvents(artist, date) {
     var artistInfo = response[0].url;
     var a = $("<a>").text("Artist's Website");
     var aOne = a.attr("href", artistInfo);
-    $(".artistPage").append(aOne);//need to create div class "artistPage" in html for where artist page will display
+    $("#artistPage").append(aOne);
     //ajax to assess object value to display on map Venue location(latitude and physical address),
     for (i = 0; i < response.length; i++) {
       //console log venue, city, lat and long)
+      console.log(response[i]);
       var venue = response[i].venue.name;
       var city = response[i].venue.city;
       var latitude = response[i].venue.latitude;
       var longitude = response[i].venue.longitude;
       var dateEvent = response[i].datetime;
       var prettyDateEvent = moment(dateEvent).format("MM/DD/YY @ hh:mm a");
-      var artist = $("<div>");
+      var bands = $("<div>");
       var v = $("<p>").text(venue);
-      artist.append(v);
+      bands.append(v);
       var c = $("<p>").text("City: " + city);
-      artist.append(c);
+      bands.append(c);
       var d = $("<p>").text("Date: " + prettyDateEvent);
-      artist.append(d);
-      $(".artistInfo").append(artist);
+      bands.append(d);
+      $("#artistInfo").append(bands);
       console.log("Venue: " + venue);
       console.log("Latitude: " + latitude);
       console.log("Longitude: " + longitude);
@@ -60,18 +61,18 @@ function displayArtistInfo(artist) {
     var aOne = $("<a>").text("Artist's BandsInTown Page").attr("href", banBit);
     banDiv3.append(aOne);
     var bImage2 = $("<img>").attr("src",response.thumb_url);
-    //append number of upcoming events
 
-    $(".artistName").append(banDiv, bImage2, banDiv2, banDiv3);
+    $("#artistName").append(banDiv, bImage2, banDiv2, banDiv3);
 
   })
   }    
 //code to grab drop selection dates and create code: for today, 7 days, and month then displays events;
 //need to create submit button in html
 $("#submit").on("click", function () {
-  $(".artistName").empty();
-  $(".artistPage").empty();
-  $(".artistInfo").empty();
+  event.preventDefault();//not working as should
+  $("#artistName").empty();
+  $("#artistPage").empty();
+  $("#artistInfo").empty();
   //add jquery for return button
   artist = $("#search").val().toLowerCase();
     //displayArtistInfo(artist);
@@ -89,7 +90,6 @@ $("#submit").on("click", function () {
   } else{
     displayArtistInfo(artist);
   }
-  ;
-  $("#search").val("");
- 
+
 });
+
