@@ -50,16 +50,73 @@
 
         </form>
 
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="button" id="artistBtn">Artist Sign In</button>
+        <!-- Button trigger modal -->
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="button" data-toggle="modal" data-target="#eventModal" id="artistBtn">Sign In</button>
+
+        <!-- Modal -->
+        <div class="modal fade formModal" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalTitle" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="eventModalTitle">Register Event</h5>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form>
+
+                            <div class="form-group">
+                                <label for="eventInput">Event Name:</label>
+                                <input type="text" class="form-control" id="eventInput">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bandInput">Band Name:</label>
+                                <input type="text" class="form-control" id="bandInput">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="locationInput">Event Location:</label>
+                                <input type="text" class="form-control" id="locationInput">
+                            </div>
+
+                            <label>Location Type:</label>
+                            <br>
+                            <button type="button" class="btn btn-outline-primary" id="vunueBtn" value="venue">Venue</button>
+                            <button type="button" class="btn btn-outline-primary" id="barBtn" value="bar">Bar</button>
+                            <button type="button" class="btn btn-outline-primary" id="houseBtn" value="house">House</button>
+
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </nav>
 
     <div class="main">
-        
+
         <div class="leftContainer theme">
 
 
-            <h1>Events</h1>
+            <h1 class="main-labels">Events</h1>
 
             <form name="dateForm">
 
@@ -91,15 +148,19 @@
 
         </div>
 
-        <div class="rightMain">
-        <div class="rightContainer theme">
+        <div class="rightMain ">
+            <div class="rightContainer theme">
 
-            <h1>(hidden)</h1>
+                <h1 class="main-labels">Artists</h1>
 
+                <div id="artists">
+                    
+                </div>
+
+            </div>
         </div>
     </div>
-    </div>
-    
+
 
     <footer class="theme">
 
@@ -113,15 +174,14 @@
 
     <script src="assets/javascript/app.js"></script>
 
-    
+
     <script src="assets/javascript/bands.js"></script>
 
     <script src="assets/javascript/map.js"></script>s
 
 
     <!-- Adds in google maps API w/ key -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSZwUGbaFXqLs3MUE0YW1fKFtTqd1Vtps&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSZwUGbaFXqLs3MUE0YW1fKFtTqd1Vtps&callback=initMap">
     </script>
 
 </body>
