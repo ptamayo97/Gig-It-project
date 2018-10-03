@@ -52,7 +52,7 @@ nav {
     left: 0;
     /* right: 150px; */
     border-right: 2px solid black;
-
+    overflow: auto;
 }
 
 #timeFrame {
@@ -77,12 +77,12 @@ nav {
 .rightContainer {
     position: absolute;
     height: 700px;
-
     top: 0px;
     /* bottom: 0px; */
     right: 0px;
     width: 250px;
     border-left: 2px solid black;
+    overflow: auto;
 }
 
 .main-labels {
