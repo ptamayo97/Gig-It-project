@@ -1,3 +1,5 @@
+
+
 function initMap() {
 
     let options = {
@@ -425,6 +427,105 @@ function initMap() {
 //         //  }
 //     })
 // }
- }
+// }
+// }
+
+// GEOCODING 
+$("#addMark").on('click', function (){
+
+
+
+
+function geoCoding(){
+  let location = $("#addressSearch").val();
+
+  let content = "<h1>" + $("#eventdetails").val() + "</h1>";
+
+  let userICon = "";
+
+ 
+  let userEvents = [{
+    coords: {
+        lat:0 ,
+        lng:0
+    },
+    content: "<h1>" + content  + "</h2>"  
+
+  }]
+
+
+    
+
+
+  axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+    params:{
+      address:location,
+      key:'AIzaSyCPCxRMUtugy5OvXKJupUilkrVY1QPgqsw'
+    }
+  }).then(function(response){
+    console.log(response)
+
+    let results = response.data.results[0]
+
+    let lat = results.geometry.location.lat;
+
+    let lng = results.geometry.location.lng;
+  
+    console.log(lat);
+
+    console.log(lng);
+     
+    userEvents = [{
+      coords: {
+        lat: lat,
+        lng: lng
+      },
+      content:"<h1>" + content  + "</h2>"  
+    }]
+
+
+    
+    console.log(userEvents);
+
+    for(let i = 0; i < userEvents.length; i++){
+      addMarker(userEvents[i]);
+  }
+
+  }).catch(function(error){
+    console.log(error)
+  })
+
+   
+  function addMarker(prop){
+ 
+    let marker = new google.maps.Marker(
+        {
+            position: prop.coords,
+            icon: prop.iconImage,
+            map: map,
+            title: venueName
+        });
+         let infowindow = new google.maps.InfoWindow({
+        content: prop.content
+        
+        
+      });
+
+        marker.addListener('click',function(){
+            infowindow.open(map,marker);
+        });
+
+      };
+
 }
 
+geoCoding();
+
+});
+
+
+
+
+
+}
+}
