@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,114 @@
     crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
 
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Gig It</title>
     
     <title>test_songkick</title>
 </head>
 <body>
+
     <script src="songkick.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
+    <nav class="navbar ">
+
+
+        <a class="navbar-brand" id="logo">Gig It!</a>
+
+        <form class="form-inline">
+
+            <input class="form-control mr-sm-2" type="text" placeholder="Search"  id="addressSearch" aria-label="Search">
+
+            <input class="form-control mr-sm-2" type="text" placeholder="Details" id="eventdetails"aria-label="content">
+
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="button" id="addMark">Add</button>
+
+        </form>
+
+        <button class="btn btn-primary my-2 my-sm-0" type="button" id="artistBtn">Artist Sign In</button>
+
+    </nav>
+
+    <div class="main">
+        
+        <div class="leftContainer theme">
+
+
+            <h1>Events</h1>
+
+            <form name="dateForm">
+
+                <select name="time" id="timeFrame">
+
+                    <option value="today" id="today">Today</option>
+
+                    <option value="thisWeek" id="thisWeek">This Week</option>
+
+                    <option value="thisMonth" id="thisMonth">This Month</option>
+
+                </select>
+
+            </form>
+
+            <ul>
+
+            </ul>
+
+
+        </div>
+
+
+        <div class="mapContainer">
+
+            <div id="map">
+
+            </div>
+
+        </div>
+
+        <div class="rightMain">
+        <div class="rightContainer theme">
+
+            <h1>(hidden)</h1>
+
+        </div>
+    </div>
+    </div>
+    
+
+    <footer class="theme">
+
+        <div class="footerDiv">
+
+        </div>
+
+    </footer>
+
+   
+    
+    
+    <script src="assets/javascript/app.js"></script>
+
+
+    
+    <script src="assets/javascript/bands.js"></script>
+
+    <script src="assets/javascript/map.js"></script>
+
+
+    <!-- Adds in google maps API w/ key -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSZwUGbaFXqLs3MUE0YW1fKFtTqd1Vtps&callback=initMap">
+    </script>
+
 </body>
 </html>
