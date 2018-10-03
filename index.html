@@ -21,9 +21,8 @@
 
     <link rel="stylesheet" href="assets/css/maps.css">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -41,7 +40,7 @@
 
 <body>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
 
     <nav class="navbar ">
 
@@ -50,8 +49,8 @@
 
         <form class="form-inline">
 
-            <input class="form-control mr-sm-4" type="search" placeholder="Search"  id="search" aria-label="Search">
-             
+            <input class="form-control mr-sm-4" type="search" placeholder="Search" id="search" aria-label="Search">
+
             <div class="row">
 
                 <button type="button" id="submit" class="btn btn-primary">Submit</button>
@@ -61,9 +60,43 @@
         </form>
 
         <!-- Button trigger modal -->
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="button" data-toggle="modal" data-target="#eventModal" id="artistBtn">Sign In</button>
+        <button class="btn btn-outline-dark my-2 my-sm-0 styledBtn hide" type="button" data-toggle="modal" data-target="#eventModal" id="artistBtn">Add Event</button>
+        <button class="btn btn-outline-dark my-2 my-sm-0 styledBtn" type="button" data-toggle="modal" data-target="#signInModal" id="signInBtn">Sign In</button>
+        <button class="btn btn-outline-dark my-2 my-sm-0 styledBtn hide" type="button" id="signOutBtn">Sign Out</button>
 
-        <!-- Modal -->
+        <!-- Sign In Modal -->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="signInTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                              <label for="userEmail">Email address</label>
+                              <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitUser">Submit</button>
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                        <!-- <button class="btn btn-outline-dark my-2 my-sm-0 styledBtn" type="button" data-toggle="modal" data-target="#eventModal" id="artistBtn">Sign In</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Form Modal -->
         <div class="modal fade formModal" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalTitle" aria-hidden="true">
 
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -118,7 +151,7 @@
 
         </div>
 
-        <button class="btn btn-primary my-2 my-sm-0" type="button" id="artistBtn">Artist Sign In</button>
+        <!-- <button class="btn btn-primary my-2 my-sm-0 styledBtn" type="button" id="artistBtn">Artist Sign In</button> -->
 
 
     </nav>
@@ -145,14 +178,14 @@
                 </select>
 
             </form>
-            
+
             <div id="artistName"></div>
 
             <div id="artistPage"></div>
 
             <div id="artistInfo"></div>
 
-            
+
 
             <ul>
 
@@ -193,8 +226,8 @@
     </footer>
 
 
-    
-    
+
+
     <script src="assets/javascript/app.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
@@ -203,7 +236,7 @@
     <script src="assets/javascript/bands.js"></script>
 
     <script src="assets/javascript/map.js"></script>
-    
+
     <script src="assets/javascript/songkick.js"></script>
 
     <!-- Adds in google maps API w/ key -->
