@@ -335,16 +335,19 @@ function initMap() {
 
 //  info window detail to populate will need ajax call to store info in above variables
 
-    let contentString = '<div id="content">' +
-        '<div id="address">' + address +
-        '</div>' +
-        '<h1 id="firstHeading" class="firstHeading">'+ venueName +'</h1>' +
-        '<div id="bodyContent">' +
-        '<p><b>'+ venueName +'</b>, '+ eventDetails +'</p>' +
-        '<p>'+ artistInfo +'</p>' +
-        '<img>'+ artistPhotos +'</img>'
-        '</div>' +
-        '</div>';
+// let contentDiv = $("<div class='content'>");
+// let venue = 
+
+    // let contentString = $("<div class='content'>")'<div id="content">' +
+    //     '<div id="address">' + address +
+    //     '</div>' +
+    //     '<h1 id="firstHeading" class="firstHeading">'+ venueName +'</h1>' +
+    //     '<div id="bodyContent">' +
+    //     '<p><b>'+ venueName +'</b>, '+ eventDetails +'</p>' +
+    //     '<p>'+ artistInfo +'</p>' +
+    //     '<img>'+ artistPhotos +'</img>'
+    //     '</div>' +
+    //     '</div>';
 
  let marks = [{
      coords: {
@@ -538,6 +541,120 @@ function geoCoding(){
 geoCoding();
 
 });
+
+
+$("#submit").on('click', function (){
+
+  function displayArtistEventMarkers(artist, date) {
+    //bands in town API
+    var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=3c23ec0eb335a5c10b8f6691c2121940&date=" + date;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      //displays artist page from bandinstown
+      var artistInfo = response[0].url;
+      var a = $("<a>").text("Artist's BandsInTown Page");
+      var aOne = a.attr("href", artistInfo);
+      $("#artistPage").append(aOne);
+      //ajax to assess object value to display on map Venue location(latitude and physical address),
+      for (i = 0; i < response.length; i++) {
+        //console log venue, city, lat and long)
+        console.log(response[i]);
+        let lineUp = response[i].lineup
+        var venue = response[i].venue.name;
+        var city = response[i].venue.city;
+        var latitude = response[i].venue.latitude;
+        var longitude = response[i].venue.longitude;
+        var dateEvent = response[i].datetime;
+        var prettyDateEvent = moment(dateEvent).format("MM/DD/YY @ hh:mm a");
+        var bands = $("<div>");
+        var v = $("<p>").text(venue);
+        bands.append(v);
+        var c = $("<p>").text("City: " + city);
+        bands.append(c);
+        var d = $("<p>").text("Date: " + prettyDateEvent);
+        bands.append(d);
+        $("#artistInfo").append(bands);
+        console.log("Venue: " + venue);
+        console.log("Latitude: " + latitude);
+        console.log("Longitude: " + longitude);
+        console.log("--------------------------------------");
+
+
+         let contentString = '<h1>'+ venue +'</h1>' + 
+         '<p> City:' + city + '</p>' +
+         '<p> Date:' + prettyDateEvent + '</p>' +
+         '<p> Line Up:' +lineUp +  '</p>' ;
+
+  
+  
+         let searchEvents = [{
+          coords: {
+            lat: 0,
+            lng: 0
+          },
+          content:"" }]
+  
+          let userICon = "";
+        
+         
+          let searchEventsArray = []
+        
+          
+           searchEvents = [{
+              coords: {
+                lat: parseFloat(latitude),
+                lng: parseFloat(longitude)
+              },
+              content:contentString }]
+
+              
+              searchEventsArray.push(searchEvents)
+        
+            
+            console.log(searchEvents);
+        
+            for(let i = 0; i < searchEvents.length; i++){
+              addMarker(searchEvents[i]);
+          }
+        
+           
+          function addMarker(prop){
+         
+            let marker = new google.maps.Marker(
+                {
+                    position: prop.coords,
+                    icon: prop.iconImage,
+                    map: map,
+                    title: venueName
+                });
+                 let infowindow = new google.maps.InfoWindow({
+                content: prop.content
+                
+                
+              });
+        
+                marker.addListener('click',function(){
+                    infowindow.open(map,marker);
+                });
+        
+              };
+        
+      
+
+        
+      }
+    })
+  };
+
+  displayArtistEventMarkers(artist, date);
+
+
+  
+  // geoCoding();
+  
+  });
 
 
 
