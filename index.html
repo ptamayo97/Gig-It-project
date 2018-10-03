@@ -49,7 +49,13 @@
 
         <form class="form-inline">
 
-            <input class="form-control mr-sm-2" type="search" placeholder="Search"  id="addressSearch" aria-label="Search">
+            <input class="form-control mr-sm-4 type="search" placeholder="Search"  id="addressSearch" aria-label="Search">
+             
+            <div class="row">
+
+                <button type="button" id="submit" class="btn btn-primary">Submit</button>
+
+            </div>
 
         </form>
 
@@ -127,6 +133,8 @@
 
                 <select name="time" id="timeFrame">
 
+                    <option>Artist Information</option>
+
                     <option value="today" id="today">Today</option>
 
                     <option value="thisWeek" id="thisWeek">This Week</option>
@@ -136,6 +144,14 @@
                 </select>
 
             </form>
+            
+            <div id="artistName"></div>
+
+            <div id="artistPage"></div>
+
+            <div id="artistInfo"></div>
+
+            
 
             <ul>
 
