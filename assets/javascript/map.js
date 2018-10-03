@@ -582,10 +582,10 @@ $("#submit").on('click', function (){
         console.log("--------------------------------------");
 
 
-         let contentString = '<h1>'+ venue +'</h1>' + 
-         '<p> City:' + city + '</p>' +
-         '<p> Date:' + prettyDateEvent + '</p>' +
-         '<p> Line Up:' +lineUp +  '</p>' ;
+         let contentString = '<h1 class="windowVenue">'+ venue +'</h1>' + 
+         '<p class="windowCity"> City:' + city + '</p>' +
+         '<p class="windowCity"> Date:' + prettyDateEvent + '</p>' +
+         '<p class="windowCity"> Line Up:' +lineUp +  '</p>' ;
 
   
   
