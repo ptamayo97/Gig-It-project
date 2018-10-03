@@ -6,6 +6,8 @@ body {
     /* text-align: center; */
     color: #ffffff;
     font-family: 'Varela Round', 'Roboto', sans-serif;
+    text-shadow: 1px 1px 0 black;
+
 }
 
 .main {
@@ -27,7 +29,7 @@ nav {
     background: #323438;
 }
 .navbar-brand {
-    font-size: 30px;
+    font-size: 36px;
     font-weight: bold;
 }
 
@@ -54,15 +56,18 @@ nav {
 }
 
 #timeFrame {
-    width: 100%;
+    width: 90%;
+    margin: 0 5%;
+    /* margin-right: 10px; */
 }
 
 .mapContainer {
     position: fixed;
     left: 250px;
     right: 250px;
-    top: 73px;
+    top: 81.5px;
     bottom: 50px;
+    text-shadow: none;
 }
 
 .rightMain {
@@ -80,6 +85,10 @@ nav {
     border-left: 2px solid black;
 }
 
+.main-labels {
+    margin-left: 10px;
+}
+
 footer {
     background: #323438;
     width: 100%;
@@ -93,3 +102,27 @@ footer {
     background: #323438;
 
 }
+
+/* Modal Form Styling */
+
+.modal-content {
+    background: #323438;
+}
+
+.modal-header {
+    border-bottom: 1px solid #9200bf;
+}
+
+.modal-footer {
+    border-top: 1px solid #9200bf;
+}
+
+button.close {
+    color: #9200bf;
+    text-shadow: 0 1px 0 black;
+}
+
+button.close:hover {
+    color: white;
+}
+
