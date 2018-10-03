@@ -328,23 +328,23 @@ function initMap() {
  google.maps.Map(document.getElementById('map'), options);
 
  let venueName = "Queen's Bee";
-//  let eventDetails = "";
-//  let artistInfo = "";
-//  let artistPhotos = "";
-//  let address = "";
+ let eventDetails = "";
+ let artistInfo = "";
+ let artistPhotos = "";
+ let address = "";
 
 //  info window detail to populate will need ajax call to store info in above variables
 
-    // var contentString = '<div id="content">' +
-    //     '<div id="address">' + address +
-    //     '</div>' +
-    //     '<h1 id="firstHeading" class="firstHeading">'+ venueName +'</h1>' +
-    //     '<div id="bodyContent">' +
-    //     '<p><b>'+ venueName +'</b>, '+ eventDetails +'</p>' +
-    //     '<p>'+ artistInfo +'</p>' +
-    //     '<img>'+ artistPhotos +'</img>'
-    //     '</div>' +
-    //     '</div>';
+    let contentString = '<div id="content">' +
+        '<div id="address">' + address +
+        '</div>' +
+        '<h1 id="firstHeading" class="firstHeading">'+ venueName +'</h1>' +
+        '<div id="bodyContent">' +
+        '<p><b>'+ venueName +'</b>, '+ eventDetails +'</p>' +
+        '<p>'+ artistInfo +'</p>' +
+        '<img>'+ artistPhotos +'</img>'
+        '</div>' +
+        '</div>';
 
  let marks = [{
      coords: {
@@ -431,15 +431,20 @@ function initMap() {
 // }
 
 // GEOCODING 
-$("#addMark").on('click', function (){
+$("#submitEvent").on('click', function (){
 
 
 
 
 function geoCoding(){
-  let location = $("#addressSearch").val();
+  let location = $("#locationInput").val();
+  let eventDetails = $("#eventInput").val();;
+  let artistInfo = $("#bandInput").val();
+  let artistPhotos = "";
+  let address = "";
 
-  let content = "<h1>" + $("#eventdetails").val() + "</h1>";
+
+
 
   let userICon = "";
 
@@ -449,7 +454,7 @@ function geoCoding(){
         lat:0 ,
         lng:0
     },
-    content: "<h1>" + content  + "</h2>"  
+    content: "" 
 
   }]
 
@@ -470,6 +475,17 @@ function geoCoding(){
     let lat = results.geometry.location.lat;
 
     let lng = results.geometry.location.lng;
+
+    let contentString = '<div id="content">' +
+    '<div id="address>' + eventDetails +
+    '</div>' +
+    '<h1 id="firstHeading" class="firstHeading">'+ artistInfo +'</h1>' +
+    '<div id="bodyContent">' +
+    '<p><b>'+ artistInfo +'</b>, '+ eventDetails +'</p>' +
+    '<p>'+ artistInfo +'</p>' +
+    // '<img>'+ artistPhotos +'</img>'
+    '</div>' +
+    '</div>';
   
     console.log(lat);
 
@@ -480,7 +496,7 @@ function geoCoding(){
         lat: lat,
         lng: lng
       },
-      content:"<h1>" + content  + "</h2>"  
+      content:contentString 
     }]
 
 
