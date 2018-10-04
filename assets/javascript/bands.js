@@ -14,7 +14,7 @@ function displayArtistEvents(artist, date) {
     //ajax to assess object value to display on map Venue location(latitude and physical address),
     for (i = 0; i < response.length; i++) {
       //console log venue, city, lat and long)
-      console.log(response[i]);
+      //console.log(response[i]);
       var venue = response[i].venue.name;
       var city = response[i].venue.city;
       var latitude = response[i].venue.latitude;
@@ -29,10 +29,10 @@ function displayArtistEvents(artist, date) {
       var d = $("<p>").text("Date: " + prettyDateEvent);
       bands.append(d);
       $("#artistInfo").append(bands);
-      console.log("Venue: " + venue);
-      console.log("Latitude: " + latitude);
-      console.log("Longitude: " + longitude);
-      console.log("--------------------------------------");
+     // console.log("Venue: " + venue);
+     // console.log("Latitude: " + latitude);
+     // console.log("Longitude: " + longitude);
+     // console.log("--------------------------------------");
     }
   })
 };
@@ -52,11 +52,11 @@ function displayVenueInfo(artist, date) {
       var city = response[i].venue.city;
       var latitude = response[i].venue.latitude;
       var longitude = response[i].venue.longitude;
-      console.log("Venue: " + venue);
-      console.log("City :"+city);
-      console.log("Latitude: " + latitude);
-      console.log("Longitude: " + longitude);
-      console.log("--------------------------------------");
+      //console.log("Venue: " + venue);
+     // console.log("City :"+city);
+     // console.log("Latitude: " + latitude);
+     // console.log("Longitude: " + longitude);
+     // console.log("--------------------------------------");
     }
   })
 };
@@ -117,20 +117,20 @@ $("#submit").click(function () {
   //if 7 days is selected then date varialbe will equal to dange range of 7 days
   if ($("#timeFrame").val() === "thisWeek") {
     date = today1 + "," + newEnd //convert date variable to api parameters
-    console.log(date);
+    //console.log(date);
     displayArtistEvents(artist, date);
     displayArtistInfo(artist);
     $("#artistPage").hide();
     //if this month is selected then date varialbe will equal to current month
   } else if ($("#timeFrame").val() === "thisMonth") {
     date = today1 + "," + endMonth; //link drop selection to date variable
-    console.log(date);
+    //console.log(date);
     displayArtistEvents(artist, date);
     displayArtistInfo(artist);
     $("#artistPage").hide();
   } else if ($("#timeFrame").val() === "today") {
     date = today1 + "," + today1;//if today is selected then date variable will change to today or upcoming
-    console.log(date);
+    //console.log(date);
     displayArtistEvents(artist, date);
     displayArtistInfo(artist);
     $("#artistPage").hide();
