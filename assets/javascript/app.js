@@ -19,11 +19,13 @@ $("#submitEvent").on("click", function (event) {
     var eventName = $("#eventInput").val().trim();
     var bandName = $("#bandInput").val().trim();
     var eventLocation = $("#locationInput").val().trim();
-    
+    var eventDate = $("#dateInput").val().trim();
+
     var newEvent = {
         eventName: eventName,
         bandName: bandName,
-        location: eventLocation  
+        location: eventLocation,  
+        eventDate: eventDate
     }
 
     database.ref("Event").push(newEvent)
@@ -31,6 +33,7 @@ $("#submitEvent").on("click", function (event) {
     $("#eventInput").val("");
     $("#bandInput").val("");
     $("#locationInput").val("");
+    $("#dateInput").val("");
 });
 
 
