@@ -20,12 +20,14 @@ $("#submitEvent").on("click", function (event) {
     var bandName = $("#bandInput").val().trim();
     var eventLocation = $("#locationInput").val().trim();
     var eventDate = $("#dateInput").val().trim();
+    var eventTime = $("#timeInput").val();
 
     var newEvent = {
         eventName: eventName,
         bandName: bandName,
         location: eventLocation,  
-        eventDate: eventDate
+        eventDate: eventDate,
+        eventTime: eventTime
     }
 
     database.ref("Event").push(newEvent)

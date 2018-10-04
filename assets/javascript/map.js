@@ -2,6 +2,132 @@
 
 function initMap() {
 
+  function geoCoding(){
+
+
+
+    database.ref("Event").on("child_added", function(snapShot) {
+      let snap = snapShot.val()
+    let location = snap.location;
+    let eventInput = snap.eventName;
+    let bandName = snap.bandName;
+    let date = snap.eventDate;
+    let time = snap.eventTime;
+    // let artistPhotos = "";
+    let address = "";
+  //   let locationType = $(".btn").click(function() {
+  //     var fired_button = $(".btn").val();
+  
+  //     locationType = fired_button
+  // });
+  
+    let userEvents = [{
+      coords: {
+          lat:0 ,
+          lng:0
+      },
+      content: "" 
+  
+    }]
+  
+  
+   
+  
+  
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+      params:{
+        address:location,
+        key:'AIzaSyCPCxRMUtugy5OvXKJupUilkrVY1QPgqsw'
+      }
+    }).then(function(response){
+      console.log(response)
+  
+      let results = response.data.results[0]
+  
+      let lat = results.geometry.location.lat;
+  
+      let lng = results.geometry.location.lng;
+  
+      address = results.formatted_address
+  
+  
+      let contentString = '<h1 class="windowVenue">'+ eventInput +'</h1>' +
+      '<p class="windowCity"> Date:' + date + '@' + time + '</p>' +
+      '<p class="windowCity"> City:' + address + '</p>' +
+      '<p class="windowCity"> Line Up:' + bandName +  '</p>' ;
+    
+      console.log(lat);
+  
+      console.log(lng);
+       
+      userEvents = [{
+        coords: {
+          lat: lat,
+          lng: lng
+        },
+        content:contentString ,
+        // iconImage: function category() {
+      
+        //        if(locationType === "house" ){
+        //        this.iconImage = "<i class='fas fa-home'></i>"}
+      
+        //        if(locationType === "coffee"){
+        //            this.iconImage = "<i class='fas fa-coffee'></i>"
+        //        }
+        //        if(locationType === "theater"){
+        //           this.iconImage = "<i class='fas fa-theater-masks'></i>"
+        //       }
+        //       if(locationType === "amptheater"){
+        //           this.iconImage = "<i class='fas fa-microphone'></i>"
+        //       }
+        //       if(locationType === "bar"){
+        //           this.iconImage = "<i class='fas fa-beer'></i>"
+        //       }
+        //       if(locationType === "venue"){
+        //           this.iconImage = "<i class='fas fa-music'></i>"
+        //       }
+        //    },
+      }]
+  
+  
+      
+      console.log(userEvents);
+  
+      for(let i = 0; i < userEvents.length; i++){
+        addMarker(userEvents[i]);
+    }
+  
+    }).catch(function(error){
+      console.log(error)
+    })
+  
+     
+    function addMarker(prop){
+   
+      let marker = new google.maps.Marker(
+          {
+              position: prop.coords,
+              icon: prop.iconImage,
+              map: map,
+              title: venueName
+          });
+           let infowindow = new google.maps.InfoWindow({
+          content: prop.content
+          
+          
+        });
+  
+          marker.addListener('click',function(){
+              infowindow.open(map,marker);
+          });
+  
+        };
+  
+  }
+    )};
+
+    geoCoding();
+
     let options = {
         zoom: 8,
         center:{lat: 32.715736 ,lng:-117.161087},
@@ -439,109 +565,15 @@ $("#submitEvent").on('click', function (){
 
 
 
-function geoCoding(){
-  let location = $("#locationInput").val();
-  let eventDetails = $("#eventInput").val();;
-  let artistInfo = $("#bandInput").val();
-  let artistPhotos = "";
-  let address = "";
 
-
-
-
-  let userICon = "";
-
- 
-  let userEvents = [{
-    coords: {
-        lat:0 ,
-        lng:0
-    },
-    content: "" 
-
-  }]
-
-
-    
-
-
-  axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-    params:{
-      address:location,
-      key:'AIzaSyCPCxRMUtugy5OvXKJupUilkrVY1QPgqsw'
-    }
-  }).then(function(response){
-    console.log(response)
-
-    let results = response.data.results[0]
-
-    let lat = results.geometry.location.lat;
-
-    let lng = results.geometry.location.lng;
-
-    let contentString = '<div id="content">' +
-    '<div id="address>' + eventDetails +
-    '</div>' +
-    '<h1 id="firstHeading" class="firstHeading">'+ artistInfo +'</h1>' +
-    '<div id="bodyContent">' +
-    '<p><b>'+ artistInfo +'</b>, '+ eventDetails +'</p>' +
-    '<p>'+ artistInfo +'</p>' +
-    // '<img>'+ artistPhotos +'</img>'
-    '</div>' +
-    '</div>';
-  
-    console.log(lat);
-
-    console.log(lng);
-     
-    userEvents = [{
-      coords: {
-        lat: lat,
-        lng: lng
-      },
-      content:contentString 
-    }]
-
-
-    
-    console.log(userEvents);
-
-    for(let i = 0; i < userEvents.length; i++){
-      addMarker(userEvents[i]);
-  }
-
-  }).catch(function(error){
-    console.log(error)
-  })
-
-   
-  function addMarker(prop){
- 
-    let marker = new google.maps.Marker(
-        {
-            position: prop.coords,
-            icon: prop.iconImage,
-            map: map,
-            title: venueName
-        });
-         let infowindow = new google.maps.InfoWindow({
-        content: prop.content
-        
-        
-      });
-
-        marker.addListener('click',function(){
-            infowindow.open(map,marker);
-        });
-
-      };
-
-}
 
 geoCoding();
 
+
 });
 
+
+// Adds the function in for handling the markers when you search an artist , populates upcoming date anywhere between a week and month 
 
 $("#submit").on('click', function (){
 
@@ -581,6 +613,7 @@ $("#submit").on('click', function (){
         console.log("Longitude: " + longitude);
         console.log("--------------------------------------");
 
+// creates input for Info window also adds classes for styling
 
          let contentString = '<h1 class="windowVenue">'+ venue +'</h1>' + 
          '<p class="windowCity"> City:' + city + '</p>' +
@@ -588,7 +621,7 @@ $("#submit").on('click', function (){
          '<p class="windowCity"> Line Up:' +lineUp +  '</p>' ;
 
   
-  
+  //  creates object for submit location data
          let searchEvents = [{
           coords: {
             lat: 0,
@@ -601,9 +634,10 @@ $("#submit").on('click', function (){
          
           let searchEventsArray = []
         
-          
+          // fills location data
            searchEvents = [{
               coords: {
+                // must parse float to turn string into number
                 lat: parseFloat(latitude),
                 lng: parseFloat(longitude)
               },
@@ -619,7 +653,7 @@ $("#submit").on('click', function (){
               addMarker(searchEvents[i]);
           }
         
-           
+          //   add marker with parameters of the object we are placing in as a property
           function addMarker(prop){
          
             let marker = new google.maps.Marker(
@@ -651,8 +685,6 @@ $("#submit").on('click', function (){
   displayArtistEventMarkers(artist, date);
 
 
-  
-  // geoCoding();
   
   });
 
