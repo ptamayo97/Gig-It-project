@@ -104,6 +104,50 @@
                             <button type="button" class="btn btn-outline-primary" id="barBtn" value="bar">Bar</button>
                             <button type="button" class="btn btn-outline-primary" id="houseBtn" value="house">House</button>
 
+                            <div class="form-group">
+                                <label for="dateInput">Date:</label>
+                                <input type="date" class="form-control" id="dateInput">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateInput">Time:</label>
+                                <input type="time" class="form-control" id="timeInput">
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <label>Upload Image</label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-default btn-file">
+                                            Browse…
+                                            <input type="file" id="imgInp">
+                                        </span>
+                                    </span>
+
+                                    <input type="text" class="form-control" readonly>
+                                </div>
+                                <img id='img-upload' />
+                            </div> -->
+
+                            <label>Location Type:</label>
+                            <br>
+                            <button type="button" class="btn btn-outline-danger" id="vunueBtn" data-place="venue" value="venue">
+                                <i class="fas fa-music"></i> Venue</button>
+                            <button type="button" class="btn btn-outline-danger" id="barBtn" data-place="venue" value="bar">
+                                <i class="fas fa-beer"></i> Bar</button>
+                            <button type="button" class="btn btn-outline-danger" id="houseBtn" data-place="venue" value="house">
+                                <i class="fas fa-home"></i> House</button>
+                            <button type="button" class="btn btn-outline-danger" id="coffeeBtn" data-place="venue" value="coffee">
+                                <i class="fas fa-coffee"></i> Coffee Shop</button>
+                            <button type="button" class="btn btn-outline-danger" id="theatreBtn" data-place="venue" value="theatre">
+                                <i class="fas fa-theater-masks"></i> Theatre</button>
+                            <button type="button" class="btn btn-outline-danger" id="amptheatreBtn" data-place="venue" value="amptheatre">
+                                <i class="fas fa-microphone"></i> Amptheatre</button>
+                            <button type="button" class="btn btn-outline-danger" id="otherBtn" data-place="venue" value="other">
+                                <i class="fas fa-map-pin"></i> Other</button>
+
+                            <input type="submit" class="btn btn-primary" id="submitEvent">
+                      
                         </form>
                     </div>
 
@@ -127,7 +171,7 @@
 
         <div class="leftContainer theme">
 
-
+            
             <h1 class="main-labels">Events</h1>
 
             <form name="dateForm">
@@ -154,7 +198,7 @@
             
             <div id="artistName"></div>
 
-            <div id="artistPage"></div>
+            <!-- <div id="artistPage"></div> -->
 
             <div id="artistInfo"></div>
 
