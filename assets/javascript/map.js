@@ -2,6 +2,29 @@
 
 function initMap() {
 
+//   function category(prop) {
+      
+//     if(prop === "house" ){
+//     this.iconImage = "<i class='fas fa-home'></i>"}
+
+//     if(prop === "coffee"){
+//         this = "<i class='fas fa-coffee'></i>"
+//     }
+//     if(prop === "theater"){
+//        this = "<i class='fas fa-theater-masks'></i>"
+//    }
+//    if(prop === "amptheater"){
+//        this = "<i class='fas fa-microphone'></i>"
+//    }
+//    if(prop === "bar"){
+//        this = "<i class='fas fa-beer'></i>"
+//    }
+//    if(prop === "venue"){
+//        this = "<i class='fas fa-music'></i>"
+//    }
+// };
+
+
   function geoCoding(){
 
 
@@ -13,6 +36,7 @@ function initMap() {
     let bandName = snap.bandName;
     let date = snap.eventDate;
     let time = snap.eventTime;
+    // let locationType = snap.locationType;
     // let artistPhotos = "";
     let address = "";
   //   let locationType = $(".btn").click(function() {
@@ -26,7 +50,8 @@ function initMap() {
           lat:0 ,
           lng:0
       },
-      content: "" 
+      content: "" ,
+      title: ""
   
     }]
   
@@ -50,11 +75,12 @@ function initMap() {
   
       address = results.formatted_address
   
+      let contentString = '<div class=contentWindow>' + '<h1 class="windowVenue">'+ eventInput +'</h1>' + '<div class=EventInfoWindow>' +
+      '<p class="windowCity"> Date: ' + date + ' @ ' + time + '</p>' +
+      '<p class="windowCity"> City: ' + address + '</p>' +
+      '<p class="windowCity"> Line Up: ' + bandName + '</p>' + '</div>'
+      + '</div>' ;
   
-      let contentString = '<h1 class="windowVenue">'+ eventInput +'</h1>' +
-      '<p class="windowCity"> Date:' + date + '@' + time + '</p>' +
-      '<p class="windowCity"> City:' + address + '</p>' +
-      '<p class="windowCity"> Line Up:' + bandName +  '</p>' ;
     
       console.log(lat);
   
@@ -66,29 +92,8 @@ function initMap() {
           lng: lng
         },
         content:contentString ,
-        // iconImage: function category() {
-      
-        //        if(locationType === "house" ){
-        //        this.iconImage = "<i class='fas fa-home'></i>"}
-      
-        //        if(locationType === "coffee"){
-        //            this.iconImage = "<i class='fas fa-coffee'></i>"
-        //        }
-        //        if(locationType === "theater"){
-        //           this.iconImage = "<i class='fas fa-theater-masks'></i>"
-        //       }
-        //       if(locationType === "amptheater"){
-        //           this.iconImage = "<i class='fas fa-microphone'></i>"
-        //       }
-        //       if(locationType === "bar"){
-        //           this.iconImage = "<i class='fas fa-beer'></i>"
-        //       }
-        //       if(locationType === "venue"){
-        //           this.iconImage = "<i class='fas fa-music'></i>"
-        //       }
-        //    },
+        title: eventInput,
       }]
-  
   
       
       console.log(userEvents);
@@ -107,9 +112,9 @@ function initMap() {
       let marker = new google.maps.Marker(
           {
               position: prop.coords,
-              icon: prop.iconImage,
+              // icon: prop.iconImage,
               map: map,
-              title: venueName
+              title: prop.title
           });
            let infowindow = new google.maps.InfoWindow({
           content: prop.content
@@ -453,57 +458,8 @@ function initMap() {
  let map = new
  google.maps.Map(document.getElementById('map'), options);
 
- let venueName = "Queen's Bee";
- let eventDetails = "";
- let artistInfo = "";
- let artistPhotos = "";
- let address = "";
-
-//  info window detail to populate will need ajax call to store info in above variables
-
-// let contentDiv = $("<div class='content'>");
-// let venue = 
-
-    // let contentString = $("<div class='content'>")'<div id="content">' +
-    //     '<div id="address">' + address +
-    //     '</div>' +
-    //     '<h1 id="firstHeading" class="firstHeading">'+ venueName +'</h1>' +
-    //     '<div id="bodyContent">' +
-    //     '<p><b>'+ venueName +'</b>, '+ eventDetails +'</p>' +
-    //     '<p>'+ artistInfo +'</p>' +
-    //     '<img>'+ artistPhotos +'</img>'
-    //     '</div>' +
-    //     '</div>';
 
  let marks = [{
-     coords: {
-         lat:32.749010 ,
-         lng:-117.128560
-     },
-     content: "<h1> Queen Bee's Venues</h2>"
-    //  iconImage: function category() {
-
-    //     let category = "";
-
-    //      if(category = House ){
-    //      this.iconImage = "house icon"}
-
-    //      if(category = coffee){
-    //          this.iconImage = "coffee shop icon"
-    //      }
-    //      if(category = theater){
-    //         this.iconImage = "theater icon"
-    //     }
-    //     if(category = amptheater){
-    //         this.iconImage = "amptheater icon"
-    //     }
-    //     if(category = bar){
-    //         this.iconImage = "drink shop icon"
-    //     }
-    //     if(category = other){
-    //         this.iconImage = "common icon"
-    //     }
-    //  },
  }];
  
  for(let i = 0; i < marks.length; i++){
@@ -519,7 +475,7 @@ function initMap() {
             position: prop.coords,
             icon: prop.iconImage,
             map: map,
-            title: venueName
+            title: prop.title
         });
          let infowindow = new google.maps.InfoWindow({
         content: prop.content
@@ -615,10 +571,11 @@ $("#submit").on('click', function (){
 
 // creates input for Info window also adds classes for styling
 
-         let contentString = '<h1 class="windowVenue">'+ venue +'</h1>' + 
+         let contentString = '<div class=contentWindow>' + '<h1 class="windowVenue">'+ venue +'</h1>' + '<div class=EventInfoWindow>' +
          '<p class="windowCity"> City:' + city + '</p>' +
-         '<p class="windowCity"> Date:' + prettyDateEvent + '</p>' +
-         '<p class="windowCity"> Line Up:' +lineUp +  '</p>' ;
+         '<p class="windowDate"> Date:' + prettyDateEvent + '</p>' +
+         '<p class="windowLineup"> Line Up:' +lineUp +  '</p>' + '</div>'
+         + '</div>';
 
   
   //  creates object for submit location data
@@ -641,7 +598,8 @@ $("#submit").on('click', function (){
                 lat: parseFloat(latitude),
                 lng: parseFloat(longitude)
               },
-              content:contentString }]
+              content:contentString,
+              title: venue }]
 
               
               searchEventsArray.push(searchEvents)
@@ -661,7 +619,7 @@ $("#submit").on('click', function (){
                     position: prop.coords,
                     icon: prop.iconImage,
                     map: map,
-                    title: venueName
+                    title: prop.title
                 });
                  let infowindow = new google.maps.InfoWindow({
                 content: prop.content
