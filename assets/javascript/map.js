@@ -563,7 +563,6 @@ $("#submit").on('click', function (){
         bands.append(c);
         var d = $("<p>").text("Date: " + prettyDateEvent);
         bands.append(d);
-        $("#artistInfo").append(bands);
         console.log("Venue: " + venue);
         console.log("Latitude: " + latitude);
         console.log("Longitude: " + longitude);

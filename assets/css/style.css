@@ -168,6 +168,8 @@ button.close:hover {
     margin: 10px;
     padding-left: 5px;
     font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 2px 2px black;
 }
 
 #artistInfo {
