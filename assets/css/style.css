@@ -48,10 +48,10 @@ nav {
 }
 
 .leftContainer {
-    height: 700px;
-    position: absolute;
-    /* bottom: px; */
-    top: 0px;
+    /* height: 700px; */
+    position: fixed;
+    bottom: 0px;
+    top: 81.5px;
     width: 250px;
     left: 0;
     /* right: 150px; */
@@ -79,10 +79,10 @@ nav {
 }
 
 .rightContainer {
-    position: absolute;
-    height: 700px;
-    top: 0px;
-    /* bottom: 0px; */
+    position: fixed;
+    /* height: 700px; */
+    top: 81.5px;
+    bottom: 0px;
     right: 0px;
     width: 250px;
     border-left: 2px solid black;
