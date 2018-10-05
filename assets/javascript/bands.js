@@ -132,6 +132,9 @@ $("#submit").click(function () {
   var newEnd = moment(endWeek).format("YYYY-MM-DD");
   var eMonth = moment().endOf("month");
   var endMonth = moment(eMonth).format("YYYY-MM-DD");
+  var year = moment().endOf("year");
+  var endYear = moment(year).format("YYYY-MM-DD");
+  console.log("End of Year: "+ endYear);
   //console.log("day is: "+newEnd);
   //displayArtistInfo(artist);
   //if 7 days is selected then date varialbe will equal to dange range of 7 days
@@ -166,7 +169,10 @@ $("#submit").click(function () {
     displayArtistInfo(artist);
     $("#artistPage").hide();
   } else {
+    date1 = today1;
+    date2 = endYear;
     date = "upcoming";
+    cityId(city);
     displayArtistEvents(artist, date);
     displayArtistInfo(artist);
     //$("#artistPage").hide();
