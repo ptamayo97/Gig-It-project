@@ -139,7 +139,7 @@ $("#submit").click(function () {
     date = today1 + "," + newEnd //convert date variable to api parameters
     date1 = today1;
     date2 = newEnd;
-    console.log(date);
+   // console.log(date);
     cityId(city);
     displayArtistEvents(artist, date);
     displayArtistInfo(artist);
@@ -147,7 +147,9 @@ $("#submit").click(function () {
     //if this month is selected then date varialbe will equal to current month
   } else if ($("#timeFrame").val() === "thisMonth") {
     date1 = today1;
+    console.log(date1);
     date2 = endMonth;
+    console.log(date2);
     date = today1 + "," + endMonth; //link drop selection to date variable
     console.log(date);
     cityId(city);
@@ -158,7 +160,7 @@ $("#submit").click(function () {
     date1 = today1
     date2 = today1
     date = today1 + "," + today1;//if today is selected then date variable will change to today or upcoming
-    console.log(date);
+    //console.log(date);
     cityId(city);
     displayArtistEvents(artist, date);
     displayArtistInfo(artist);
