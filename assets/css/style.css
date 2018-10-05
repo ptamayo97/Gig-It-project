@@ -54,7 +54,7 @@ nav {
     top: 81.5px;
     width: 250px;
     left: 0;
-    right: 150px;
+    /* right: 150px; */
     border-right: 2px solid black;
     overflow: auto;
 }
