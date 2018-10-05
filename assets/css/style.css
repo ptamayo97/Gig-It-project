@@ -18,11 +18,7 @@ body {
     margin-right: 50px;
 }
 
-.hide {
-    display: none;
-}
-
-.styledBtn {
+#artistBtn {
     background: #9200bf;
     border: 2px solid black; 
     color: #ffffff;
