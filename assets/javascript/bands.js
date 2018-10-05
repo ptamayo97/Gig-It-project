@@ -29,10 +29,10 @@ function displayArtistEvents(artist, date) {
       var d = $("<p>").text("Date: " + prettyDateEvent);
       bands.append(d);
       $("#artistInfo").append(bands);
-     // console.log("Venue: " + venue);
-     // console.log("Latitude: " + latitude);
-     // console.log("Longitude: " + longitude);
-     // console.log("--------------------------------------");
+      console.log("Venue: " + venue);
+      console.log("Latitude: " + latitude);
+      console.log("Longitude: " + longitude);
+      console.log("--------------------------------------");
     }
   })
 };
@@ -52,11 +52,11 @@ function displayVenueInfo(artist, date) {
       var city = response[i].venue.city;
       var latitude = response[i].venue.latitude;
       var longitude = response[i].venue.longitude;
-      //console.log("Venue: " + venue);
-     // console.log("City :"+city);
-     // console.log("Latitude: " + latitude);
-     // console.log("Longitude: " + longitude);
-     // console.log("--------------------------------------");
+      console.log("Venue: " + venue);
+      console.log("City :"+city);
+      console.log("Latitude: " + latitude);
+      console.log("Longitude: " + longitude);
+      console.log("--------------------------------------");
     }
   })
 };
