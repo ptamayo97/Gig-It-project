@@ -21,7 +21,7 @@ function displayArtistEvents(artist, date) {
       var longitude = response[i].venue.longitude;
       var dateEvent = response[i].datetime;
       var prettyDateEvent = moment(dateEvent).format("MM/DD/YY @ hh:mm a");
-      var bands = $("<div>");
+      var bands = $("<div class='band-event'>");
       var v = $("<p>").text(venue);
       bands.append(v);
       var c = $("<p>").text("City: " + city);
