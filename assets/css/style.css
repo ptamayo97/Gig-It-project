@@ -175,3 +175,9 @@ button.close:hover {
 #artistInfo {
     margin-top: 10px;
 }
+
+#submit {
+    background: #9200bf;
+    border: 2px solid black; 
+    color: #ffffff;
+}
